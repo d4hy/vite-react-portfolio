@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* The @ symbols are directives or rules. They tell the css processor (browser) to handle blocks of code*/
+@theme {
+  /* hsl(...) wraps those three numbers into a valid CSS color (e.g. hsl(210, 20%, 50%)).
+    hsl(hue: Represents the “base” color on the color wheel. 0-360 , saturation: How “intense” or “pure” the color is. %, lightness%,)
+  var(--border) pulls in whatever value you stored in --border (for example, 210, 20%, 50%). */
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  --animate-float: float 6s ease-in-out infinite;
+  /*  Pulsating stars forever
+        
+        css: animation equivalent.
+        .fade-in {
+          animation-name: fadeIn;
+          animation-duration: 1s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards;
+        }
+        @keyframes fadeIn {
+           from { opacity: 0; }   Starting state 
+           to { opacity: 1; }     Ending state 
+        }
+
+        */
+
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  /*linear means to run a constant rate from start to finish*/
+  --animate-meteor: meteor 5s linear infinite;
+  /*rules define the intermediate steps of an animation by naming “frames” at certain percentages (or with from/to) of the animation’s duration*/
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+}
+/*This is a Tailwind CSS directive that says “everything in here belongs in the base layer of generated CSS,” 
+  i.e. the foundational styles that come before components or utilities. It ensures these rules aren’t overridden by later layers. */
+@layer base {
+  :root {
+    --background: 60 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+
+    --primary: 0 40% 82%;
+    --primary-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 8%;
+
+    --primary: 0 40% 82%;
+    --primary-foreground: 213 31% 91%;
+
+    --border: 217 33% 20%;
+  }
+
+  /* Applying to everything*/
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+  /* transition-colors & duration-300:
+     - Built-in Tailwind utilities from the “Transitions” core plugin.
+     - `transition-colors` → `transition-property: color, background-color;
+     
+     font-feature-settings:
+     - Standard CSS property for enabling OpenType font features.
+     - `"rlig" 1` enables required ligatures (e.g., “fi”, “fl”) sequences like “fi” automatically render as a fused joint rather than two separate characters..
+     - `"calt" 1` enables contextual alternates for stylistic glyph variations.
+     For example, a lowercase “g” might have a different tail form when it appears at the end of a word versus in the middle.
+     - These flags must be supported by the font you’re using (e.g., Inter).`*/
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@utility container {
+  /* 
+      margin-left: auto;
+      margin-right: auto;
+
+      padding-left: 2rem;
+      padding-right: 2rem;
+      */
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  /* Reuses Tailwind’s built-in relative class, which sets position: relative; */
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  /* “When the transform value changes (e.g. scale, rotate, translate), animate it instead of jumping immediately.”
+     transition-duration: 300ms;
+     transform: scale(1.02);
+
+     adds Tailwind’s “large” box-shadow:
+     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
+            0 4px 6px  -2px rgba(0,0,0,0.05);
+     */
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  /* Use Tailwind’s utility classes:
+     
+     - rounded-md: applies a medium border-radius */
+  @apply relative rounded-md;
+
+  /* The `background` shorthand allows you to set one or more background layers.
+     Here, we’re using a CSS function `linear-gradient(...)` as the background image. */
+  /* Direction: `to right` means the gradient runs from left (0%) to right (100%). */
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+
+  /* Limit the background to the padding-box so the gradient doesn’t bleed under the border.
+    background-clip: padding-box; tells the browser to paint the element’s background only up to the inside edge
+     of its border (i.e. the padding box), so nothing shows underneath the border itself . */
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+/* Horizontal padding of 1.5rem (px-6) */
+/* Vertical padding of 0.5rem (py-2) */
+/* Fully rounded corners for a pill-shaped button */
+/* Background color from your --primary custom property */
+/* Text color from your --primary-foreground custom property */
+/* Medium font weight for balanced emphasis */
+/* Animate all property changes (scale, shadow) */
+/* Animation duration set to 300ms for a smooth transition */
+/* On hover: apply a custom purple glow shadow (no offset, 10px blur, semi-transparent) */
+/* On hover: grow to 105% size */
+/* When the button is active (pressed): shrink to 95% size */
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+             transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+             hover:scale-105 active:scale-95;
+}
+
+@utility star {
+  @apply absolute rounded-full bg-white;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+}
+
+@utility meteor {
+  /* Define a custom “.meteor” utility */
+
+  /* Position absolutely so you can freely place the meteor */
+  @apply absolute;
+
+  /*  bg-linear-to-r: sets a left-to-right linear gradient as the background image,
+     using Tailwind’s gradient stops (from-white → via-white → to-transparent:
+       - from-white:    solid white at the start (meteor head)
+       - via-white:     keep white through the middle
+       - to-transparent:fade out to transparent at the end (meteor tail) */
+  @apply bg-linear-to-r from-white via-white to-transparent;
+
+  /* Make it perfectly round for a smooth head and tail shape */
+  @apply rounded-full;
+
+  /* Add a soft white glow around the head/tail:
+       - 0 0 10px 5px: no offset, 10px blur, 5px spread
+       - rgba(255,255,255,0.3): semi-transparent white */
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}

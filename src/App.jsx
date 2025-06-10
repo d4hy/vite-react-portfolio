@@ -7,7 +7,7 @@ import { Toaster } from "./components/ui/toaster";
 function App() {
   return (
     <ThemeProvider>
-      <Toaster>
+        <Toaster/>
         <BrowserRouter>
           <Routes>
             <Route index element={<Home />} />
@@ -15,7 +15,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </Toaster>
+   
     </ThemeProvider>
   );
 }

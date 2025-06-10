@@ -1,37 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { Link } from "react-router-dom"
-const projects = [
-  {
-    id: 1,
-    title: "Beabadoobee Trivia Maze",
-    description: "A fun trivia game where you traverse through a maze by answering trivia questions about Beabadoobee.",
-    image: "/images/bea-cover.jpg",
-    tags: ["Java", "Java Swing", "SQLite"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/d4hy/TriviaMaze",
-  },
-  {
-    id: 2,
-    title: "Fitness Tracker",
-    description:
-    "The Fitness Tracker is a web-based app for logging and managing workouts. Users can create, view, update, and delete entries for each exercise.",
-    image: "images/fitness-tracker-preview.png",
-    tags: [ "JQuery", "Express.js", "Node.js"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/d4hy/Fitness-Tracker",
-  },
-  {
-    id: 3,
-    title: "Mythic Realms: Whispers of the Forgotten Lands",
-    description:
-      "A 2D JavaScript adventure game featuring dynamic character movement, enemy interactions, and immersive environments.",
-      
-    image: "images/mythic-realms-preview.png",
-    tags: ["JavaScript", "HTML", "CSS"],
-    demoUrl: "https://angel-vu.github.io/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands/",
-    githubUrl: "https://github.com/angel-vu/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands",
-  },
-];
+import { Link } from "react-router-dom";
+import {projectsList} from"../pages/Projects";
 
 export const ProjectsSection = () => {
   return (
@@ -48,9 +17,9 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {projectsList.map((project) => (
             <div
-              key={key}
+              key={project.id}
               className="group bg-card rounded-lg  shadow-xs card-hover relative"
             >
               <div className="h-48 ">
@@ -59,7 +28,7 @@ export const ProjectsSection = () => {
                   src={project.image}
                   alt={project.title}
                  
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 rounded-t-lg"
                 />
 
               </div>

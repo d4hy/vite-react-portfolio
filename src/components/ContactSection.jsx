@@ -1,9 +1,11 @@
 import { Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 export const ContactSection = () => {
+
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -11,37 +13,37 @@ export const ContactSection = () => {
     email: "",
     message: "",
   });
+  useEffect(() => {
+    emailjs.init({
+      publicKey: import.meta.env.VITE_PUBLIC_KEY, // double check this value is correct
+    });
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    /* A Promise is a special JavaScript object used to handle asynchronous operations which sendForm returns.
+     * Both then and and async are used to handle promises.
+     * .then is used for chaining while async makes it look synchronous.
+     */
+    try {
+      await emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, formData);
+
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      /* A Promise is a special JavaScript object used to handle asynchronous operations which sendForm returns.
-       * Both then and and async are used to handle promises.
-        .then is used for chaining while async makes it look synchronous.
-       */
-       emailjs
-      .sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then((result) => {
-        alert("Message Sent!");
-        setFormData({ name: "", email: "", message: "" });
-      })
-      .catch(() => alert("Oops! Something went wrong. Please try again."));
 
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      alert("Oops! Something went wrong.\n" + (err?.text || JSON.stringify(err)));
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative ">
       <div className="container mx-auto max-w-5xl">
@@ -95,25 +97,20 @@ export const ContactSection = () => {
                 <a href="https://www.linkedin.com/in/dvhyhoang/" target="_blank">
                   <Linkedin />
                 </a>
-        
               </div>
             </div>
           </div>
 
-          <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form  className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   {" "}
                   Your Name
                 </label>
-                <input type="text" id="name" name="name" required value ={formData.name} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="David Hoang..."
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }  
-                />
+                <input type="text" id="name" name="name" required value={formData.name} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="David Hoang..." onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
               </div>
 
               <div>
@@ -121,10 +118,7 @@ export const ContactSection = () => {
                   {" "}
                   Your Email
                 </label>
-                <input type="email" id="email" name="email" required value ={formData.email} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="john@gmail.com"
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                } />
+                <input type="email" id="email" name="email" required value={formData.email} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="john@gmail.com" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
 
               <div>
@@ -132,11 +126,7 @@ export const ContactSection = () => {
                   {" "}
                   Your Message
                 </label>
-                <textarea id="message" name="message" required value ={formData.message} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none" placeholder="Hello, I'd like to talk about..."
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                />
+                <textarea id="message" name="message" required value={formData.message} className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none" placeholder="Hello, I'd like to talk about..." onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
               </div>
 
               <button type="submit" disabled={isSubmitting} className={cn("cosmic-button w-full flex items-center justify-center gap-2")}>

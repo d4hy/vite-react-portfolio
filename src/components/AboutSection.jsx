@@ -9,7 +9,10 @@ export const AboutSection = () => {
         </h2>
 
         <p className="text-muted-foreground text-lg md:text-xl mt-4 text-left indent-8">
-          I graduated from University of Washington with a BS in Computer Science. 
+        I graduated from the University of Washington with a BS in Computer Science. 
+        I’m passionate about technology and love spending my time tinkering with new tools and exploring how the fundamentals work. I’m eager to continue learning and applying my skills to build impactful software solutions. Outside of coding, I enjoy building and soldering keyboards.
+
+
         </p>
 
         <div className="pt-6">

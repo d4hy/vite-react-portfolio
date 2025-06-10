@@ -2,32 +2,44 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 import { useTheme } from "@/components/ThemeToggle";
 
-
 //the links
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  /*
+  Navigation Items:
+  - Home, About, Skills, and Contact use "/#section" links to navigate and smoothly scroll to sections on the home page.
+  - We use <HashLink> from "react-router-hash-link" for these links:
+      • If already on the home page ("/"), HashLink smoothly scrolls to the section without reloading.
+      • If on another page (like "/projects"), HashLink navigates back to "/" and then smoothly scrolls to the section.
+      • We use HashLink instead of plain anchor tags (<a href="...">) because anchor tags would cause a full page reload, whereas HashLink avoids reloading and preserves SPA behavior.
+ - Projects uses "/projects" because it’s a separate page (no #section), so we use <Link> for standard SPA navigation.
+    • We use <Link> instead of HashLink for full-page routes (like /projects) because HashLink is only for in-page or anchored scrolling.
+    • <Link> does NOT reload the page—it uses React Router’s client-side routing to update the view without a full reload.
+  - This ensures consistent scrolling behavior and no full page reloads—everything stays SPA style.
+*/
+
+  { name: "Home", href: "/" },
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { isDarkMode } = useTheme();
-    const keyboardImage = isDarkMode ? "/images/keyboard-dark.png" : "/images/keyboard-light.png";
+  const { isDarkMode } = useTheme();
+  const keyboardImage = isDarkMode ? "/images/keyboard-dark.png" : "/images/keyboard-light.png";
   useEffect(() => {
     //The height of the nav is 10.
     const handleScroll = () => {
       setIsScrolled(window.screenY > 10);
     };
-   
-      
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -54,13 +66,28 @@ export const Navbar = () => {
          Hidden when smaller than medium, but for medium and above will display flex.
          space-x-8 : Adds horizontal spacing (gap) of 2rem (32px) between direct children of a flex container
         margin-left: 2rem;
-         
+         The map function is to evaluate javascript code
          */}
-          {navItems.map((item, key) => (
-            <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">
-              {item.name}
-            </a>
-          ))}
+
+          {navItems.map((item) =>
+            item.href.startsWith("/#") || item.href === "/" ? (
+              // Use HashLink for in-page scrolling
+              <HashLink
+                key={item.name}
+                to={item.href}
+                smooth // enables smooth scrolling
+                className="text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)} // optional: close the mobile menu after click
+              >
+                {item.name}
+              </HashLink>
+            ) : (
+              // Use regular Link for separate pages
+              <Link key={item.name} to={item.href} className="text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {item.name}
+              </Link>
+            )
+          )}
 
           <ThemeToggle />
         </div>
@@ -83,12 +110,25 @@ export const Navbar = () => {
         margin-top: 2rem;
          
          */}
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
-              <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>
-                {item.name}
-              </a>
-            ))}
+          <div className="flex flex-col space-y-8 text-xl mt-8">
+            {navItems.map((item) =>
+              item.href.startsWith("/#") || item.href === "/" ? (
+                <HashLink
+                  key={item.name}
+                  to={item.href} // HashLink uses `to`
+                  smooth // enable smooth scrolling
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </HashLink>
+              ) : (
+                <Link key={item.name} to={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>
+                  {item.name}
+                </Link>
+              )
+            )}
+
             <ThemeToggle />
           </div>
         </div>

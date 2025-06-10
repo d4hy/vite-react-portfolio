@@ -1,14 +1,10 @@
 
 import { StarBackground } from "../components/StarBackground";
 import { Navbar } from "../components/Navbar";
-import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { Footer } from "../components/Footer";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
 
-export const Home = () => {
+import { Footer } from "../components/Footer";
+
+export const Projects = () => {
   /*
     These are from tailwind.
      min-h-screen: minimum height is the size of the screen.
@@ -21,7 +17,7 @@ export const Home = () => {
     */
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-
+      
 
       {/* Background Effects */}
       <StarBackground />
@@ -29,11 +25,7 @@ export const Home = () => {
       <Navbar />
       {/* Main Content*/}
       <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection/>
-        <ContactSection/>
+   
       </main>
 
       {/* Footer*/}

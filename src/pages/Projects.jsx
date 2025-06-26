@@ -1,9 +1,10 @@
 import { StarBackground } from "../components/StarBackground";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
-import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
+// Project list used to populate the cards dynamically
 export const projectsList = [
   {
     id: 1,
@@ -35,11 +36,6 @@ export const projectsList = [
 ];
 
 export const Projects = () => {
-  const [activeProjectId, setActiveProjectId] = useState(null);
-
-  const toggleExpand = (id) => {
-    setActiveProjectId((prev) => (prev === id ? null : id));
-  };
   /*
     These are from tailwind.
      min-h-screen: minimum height is the size of the screen.
@@ -47,45 +43,53 @@ export const Projects = () => {
      Defined in index.css. 
 
      overflow-x: hidden;, which clips any content that would spill out horizontally and removes horizontal scrollbars—useful for preventing accidental side-scroll from animations or wide background effects.
-
-
-    */
+  */
   return (
     <section id="projectsPage" className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Background Effects */}
       <StarBackground />
       {/* Navbar*/}
       <Navbar />
+
       {/* Main Content*/}
       <main className="container mx-auto max-w-5xl my-24">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center ">
-          {" "}
           Featured <span className="text-primary"> Projects </span>
         </h2>
         <p className="mb-4">Click on a project to learn more about it.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsList.map((project) => (
-            <div key={project.id} className="group bg-card rounded-lg  shadow-xs card-hover cursor-pointer relative"
-            onClick= {() => toggleExpand(project.id)}
-            >
-              <div className="h-48 ">
-                {/* Group hover makes it so that it expands within the card. */}
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 rounded-t-lg" />
-              </div>
+            // Only wrap part of the card in a Link to prevent nested anchor issues
+            <div key={project.id} className="group bg-card rounded-lg shadow-xs card-hover relative">
+              <Link to={`/projects/${project.id}`}  key={project.id} className="block h-48 overflow-hidden rounded-t-lg">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </Link>
 
               <div className="p-6 pb-12">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full text-foreground">{tag}</span>
+                    <span key={tag} className="px-2 py-1 text-xs font-medium border rounded-full text-foreground">
+                      {tag}
+                    </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-foreground text-sm mb-4">{project.description}</p>
-                <div className="  absolute bottom-0 left-0 w-full m-4 ">
+
+                <div className="absolute bottom-0 left-0 w-full m-4">
                   <div className="flex space-x-3">
-                    <a href={project.githubUrl} target="_blank" className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    >
                       <Github size={20} />
                     </a>
                   </div>
@@ -93,6 +97,16 @@ export const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+          <div className = " mt-12 flex flex-col items-center ">
+            <p> Check out my GitHub repository for more projects!</p>
+          <a href= "https://github.com/d4hy" target="_blank" className="cosmic-button w-fit mt-2"> 
+            My GitHub
+          </a>
+          </div>
+        {/* Dynamic child route content will render here */}
+        <div className="mt-16">
+          <Outlet />
         </div>
       </main>
 

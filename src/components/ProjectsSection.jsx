@@ -3,6 +3,27 @@ import { Link } from "react-router-dom";
 import {projectsList} from"../pages/Projects";
 
 export const ProjectsSection = () => {
+/*
+Component Purpose:
+- This section displays a preview grid of projects with title, description, image, tags, and links.
+- The "See more projects" button links to the full `/projects` page using React Router.
+
+Routing Explanation:
+- We use <Link> from `react-router-dom` when navigating between internal routes (like `/projects`).
+   • This keeps the experience as a Single Page App (SPA) — no page reload happens.
+   • <Link> is ideal for navigation between React Router routes.
+
+- We use regular <a> tags with `href` when linking to external URLs (like GitHub or live demos).
+   • These links open in a new tab (`target="_blank"`) because they point to websites outside our app.
+   • <a> is required here because <Link> is only for internal routing.
+
+Icons:
+- We use `ExternalLink` and `Github` icons from `lucide-react` to visually indicate where the links go.
+   • `ExternalLink`: appears next to the demo URL (live project).
+   • `Github`: appears next to the GitHub repository URL.
+   • These icons are decorative, help users quickly recognize link purpose.
+*/
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -15,14 +36,18 @@ export const ProjectsSection = () => {
           Here are some of my recent projects. Each project was carefully
           crafted with attention to detail, performance, and user experience.
         </p>
-
+              {/* Hidden when smaller than medium, but for medium and above will display flex.
+         space-x-8 : Adds horizontal spacing (gap) of 2rem (32px) between direct children of a flex container
+        margin-left: 2rem;
+         The map function is to evaluate javascript code.
+         */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsList.map((project) => (
             <div
               key={project.id}
               className="group bg-card rounded-lg  shadow-xs card-hover relative"
             >
-              <div className="h-48 ">
+              <div className="h-48 overflow-hidden">
                  {/* Group hover makes it so that it expands within the card. */}
                 <img
                   src={project.image}
@@ -68,7 +93,9 @@ export const ProjectsSection = () => {
             </div>
           ))}
         </div>
-
+             {/* 
+             width: fit-content; means to fit element only as wide as its content
+         */}
         <div className="text-center mt-12">
           <Link
             className="cosmic-button w-fit flex items-center mx-auto gap-2"

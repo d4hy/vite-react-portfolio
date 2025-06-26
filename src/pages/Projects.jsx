@@ -10,7 +10,7 @@ export const projectsList = [
     id: 1,
     title: "Beabadoobee Trivia Maze",
     description: "A fun trivia game where you traverse through a maze by answering trivia questions about Beabadoobee.",
-    image: "/images/bea-cover.jpg",
+    image: "images/bea-trivia-images/bea-cover.jpg",
     tags: ["Java", "Java Swing", "SQLite"],
     demoUrl: "#",
     githubUrl: "https://github.com/d4hy/TriviaMaze",
@@ -60,7 +60,6 @@ export const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsList.map((project) => (
-            // Only wrap part of the card in a Link to prevent nested anchor issues
             <div key={project.id} className="group bg-card rounded-lg shadow-xs card-hover relative">
               <Link to={`/projects/${project.id}`}  key={project.id} className="block h-48 overflow-hidden rounded-t-lg">
                 <img

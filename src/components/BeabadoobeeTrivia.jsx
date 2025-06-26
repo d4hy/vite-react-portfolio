@@ -12,9 +12,11 @@ export const BeabadoobeeTrivia = () => {
 
   return (
     <div className="mt-16 bg-card p-6 rounded-lg shadow-md border border-border">
-      <h2 className="text-3xl font-bold text-center mb-4 text-primary">{project.title}</h2>
-      <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-md mb-4" />
-      <p className="text-foreground mb-4 text-center">{project.description}</p>
+      <h2 className="text-3xl font-bold text-center mb-4">{project.title}</h2>
+      <img src={"images/bea-trivia-images/bea-triviamaze-preview.png"} alt={project.title} className="w-full h-full object-cover rounded-md mb-4" />
+      <p className="text-foreground mb-4 text-center">
+        Navigate the maze where you will be tested to see if you are an ample fan of Beabadobee!
+      </p>
 
       <div className="flex justify-center gap-4">
         {project.demoUrl !== "#" && (

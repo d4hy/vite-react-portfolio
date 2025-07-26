@@ -61,7 +61,9 @@ Icons:
               <div className="p-6 pb-12" >
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full text-foreground">
+                    <span 
+                    key={tag}
+                    className="px-2 py-1 text-xs font-medium border rounded-full text-foreground">
                       {tag}
                     </span>
                   ))}

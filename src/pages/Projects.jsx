@@ -28,7 +28,7 @@ export const projectsList = [
     id: 3,
     title: "Mythic Realms: Whispers of the Forgotten Lands",
     description: "A 2D JavaScript adventure game featuring dynamic character movement, enemy interactions, and immersive environments.",
-    image: "images/mythic-realms-preview.png",
+    image: "images/mythic-realms-images/mythic-realms-preview.png",
     tags: ["JavaScript", "HTML", "CSS"],
     demoUrl: "https://angel-vu.github.io/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands/",
     githubUrl: "https://github.com/angel-vu/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands",

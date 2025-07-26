@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Toaster } from "./components/ui/toaster";
 import { BeabadoobeeTrivia } from "./components/BeabadoobeeTrivia"; // Add this line
 import { FitnessTracker } from "./components/FitnessTracker";
+import { MythicRealms } from "./components/MyhticRealms";
 function App() {
   return (
     <ThemeProvider>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/projects" element={<Projects />}>
             <Route path="1" element={<BeabadoobeeTrivia />} />
             <Route path="2" element={<FitnessTracker />} />
+            <Route path="3" element={<MythicRealms />} />
           </Route>
         </Routes>
       </BrowserRouter>

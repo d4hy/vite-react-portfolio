@@ -20,7 +20,7 @@ export const FitnessTracker = () => {
         <li>
           {" "}
           <span className="inline border border-primary bg-primary text-foreground px-2 py-1 rounded mr-1">Stack</span>
-          <p className="inline"> HTML, CSS, JavaScript, JQuery, Express.js, Node.js, Bootstrap </p>
+          <p className="inline"> HTML, CSS, JavaScript, JQuery, Express.js, Node.js, Bootstrap, VS Code </p>
         </li>
 
         <li>
@@ -29,35 +29,33 @@ export const FitnessTracker = () => {
             <Github size={18} />
           </a>
         </li>
-        <a href="/a3.html" className="inline-flex items-center gap-2 border border-primary bg-primary px-2 py-1 rounded mr-1 hover:opacity-90 transition">
+        <a href="/a3.html"  target="_blank" className="inline-flex items-center gap-2 border border-primary bg-primary px-2 py-1 rounded mr-1 hover:opacity-90 transition">
           Documentation
           <ExternalLink size={18} />
         </a>
-        <li>
-          <a></a>
-        </li>
+  
       </ul>
       <h1 className="text-xl  text-center mb-4"> Gallery:</h1>
 
       <p className="my-4"> To edit a previous workout, click 'Read' in the navigation menu, then select 'Edit' to update the date, sets, reps, and weights. </p>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-preview.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-preview.png"} alt="fitness tracker preview" className="w-full h-full object-cover  my-4 " />
 
        <h1 className="my-4"> Update page</h1>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-edit.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-edit.png"} alt="edit page" className="w-full h-full object-cover  my-4 " />
 
       <h1 className="my-4"> View page</h1>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-view.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-view.png"} alt="view page" className="w-full h-full object-cover  my-4 " />
 
         <h1 className="my-4"> Create page</h1>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-create.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-create.png"} alt="create page" className="w-full h-full object-cover  my-4 " />
 
       
       <h1 className="my-4"> Successfully adding a page.</h1>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-create-success.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-create-success.png"} alt="create success image" className="w-full h-full object-cover  my-4 " />
 
       
       <h1 className="my-4"> Pr page</h1>
-      <img src={"/images/fitness-tracker-images/fitness-tracker-pr.png"} alt="multiple choice preview" className="w-full h-full object-cover  my-4 " />
+      <img src={"/images/fitness-tracker-images/fitness-tracker-pr.png"} alt="pr page" className="w-full h-full object-cover  my-4 " />
 
     </div>
   );

@@ -19,7 +19,7 @@ export const projectsList = [
     id: 2,
     title: "Fitness Tracker",
     description: "The Fitness Tracker is a web-based app for logging and managing workouts. Users can create, view, update, and delete entries for each exercise.",
-    image: "images/fitness-tracker-preview.png",
+    image: "images/fitness-tracker-images/fitness-tracker-preview.png",
     tags: ["JQuery", "Express.js", "Node.js"],
     demoUrl: "#",
     githubUrl: "https://github.com/d4hy/Fitness-Tracker",

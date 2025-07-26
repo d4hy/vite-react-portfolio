@@ -56,6 +56,12 @@ export const BeabadoobeeTrivia = () => {
 
       <h1 className="my-4 text-lg font-bold text-center">Instructions </h1>
       <img src={"/images/bea-trivia-images/bea-instructions.png"} alt= "Intstructions preview" className="w-full h-full object-cover  my-4 " />
+
+      <p className="my-4 indent-5"> From the settings menu, you can save or load your progress, start a new game, toggle background music, adjust the volume, and even activate an in-game cheat feature.  </p>
+      <img src={"/images/bea-trivia-images/bea-settings.png"} alt= "Settings preview" className="w-full h-full object-cover  my-4 " />
+
+      <p className="my-4 "> Win Screen  </p>
+      <img src={"/images/bea-trivia-images/bea-winscreen.png"} alt= "Win preview" className="w-full h-full object-cover  my-4 " />
     </div>
   );
 };

@@ -7,6 +7,8 @@ import { Toaster } from "./components/ui/toaster";
 import { BeabadoobeeTrivia } from "./components/BeabadoobeeTrivia"; // Add this line
 import { FitnessTracker } from "./components/FitnessTracker";
 import { MythicRealms } from "./components/MyhticRealms";
+import { HawlTechsMemoryBox } from "./components/HawlTechsMemoryBox";
+import { ArchiveLMS } from "./components/ArchiveLMS";
 function App() {
   return (
     <ThemeProvider>
@@ -20,6 +22,8 @@ function App() {
             <Route path="1" element={<BeabadoobeeTrivia />} />
             <Route path="2" element={<FitnessTracker />} />
             <Route path="3" element={<MythicRealms />} />
+            <Route path="4" element={<HawlTechsMemoryBox />} />
+            <Route path="5" element={<ArchiveLMS />} />
           </Route>
         </Routes>
       </BrowserRouter>

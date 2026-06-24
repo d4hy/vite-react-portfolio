@@ -2,35 +2,48 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  // Frontend
-
-  /*Level out of 100 how much I think i know that skill */
-  { name: "Java", category: "languages" },
   { name: "JavaScript", category: "languages" },
   { name: "TypeScript", category: "languages" },
+  { name: "Java", category: "languages" },
   { name: "SQL", category: "languages" },
-  { name: "HTML/CSS", category: "languages" },
+  { name: "HTML5", category: "languages" },
+  { name: "CSS3", category: "languages" },
 
-  // Backend
-  { name: "Node.js", category: "frameworks/libraries" },
-  { name: "React", category: "frameworks/libraries" },
-  { name: "Express.js", category: "frameworks/Libraries" },
-  { name: "JUnit", category: "frameworks/libraries" },
-  { name: "Swing", category: "frameworks/libraries" },
-  { name: "Vite", category: "frameworks/libraries" },
-  { name: "Tailwind CSS", category: "frameworks/libraries" },
+  { name: "React", category: "frontend" },
+  { name: "Next.js", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Responsive Web Design", category: "frontend" },
+  { name: "UI Components", category: "frontend" },
+  { name: "Figma", category: "frontend" },
+  { name: "AJAX", category: "frontend" },
 
-  // Tools
-  { name: "MongoDB", category: "tools" },
+  { name: "Node.js", category: "backend" },
+  { name: "Express.js", category: "backend" },
+  { name: "Spring Boot", category: "backend" },
+  { name: "REST APIs", category: "backend" },
+  { name: "CRUD Operations", category: "backend" },
+
   { name: "MySQL", category: "tools" },
+  { name: "SQLite", category: "tools" },
+  { name: "MongoDB", category: "tools" },
   { name: "Git/GitHub", category: "tools" },
   { name: "VS Code", category: "tools" },
-  { name: "Ubuntu", category: "tools" },
   { name: "IntelliJ", category: "tools" },
   { name: "Eclipse", category: "tools" },
+  { name: "Linux", category: "tools" },
+  { name: "Vite", category: "tools" },
+
+  { name: "Chrome Extensions", category: "concepts" },
+  { name: "Manifest V3", category: "concepts" },
+  { name: "Relational Database Design", category: "concepts" },
+  { name: "OOP", category: "concepts" },
+  { name: "Data Structures", category: "concepts" },
+  { name: "Agile", category: "concepts" },
+  { name: "SDLC", category: "concepts" },
+  { name: "Full-Stack Development", category: "concepts" },
 ];
 
-const categories = ["all", "languages", "frameworks/libraries", "tools"];
+const categories = ["all", "languages", "frontend", "backend", "tools", "concepts"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");

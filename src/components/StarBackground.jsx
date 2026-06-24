@@ -13,6 +13,7 @@ export const StarBackground = () => {
 
     const handleResize = () => {
       generateStars();
+      generateMeteors();
     };
 
     window.addEventListener("resize", handleResize);
@@ -44,17 +45,25 @@ export const StarBackground = () => {
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4;
+    const numberOfMeteors = Math.max(3, Math.min(6, Math.floor(window.innerWidth / 360)));
     const newMeteors = [];
 
     for (let i = 0; i < numberOfMeteors; i++) {
+      const travelX = Math.random() * 260 + 520;
+      const travelY = Math.random() * 180 + 260;
+
       newMeteors.push({
         id: i,
-        size: Math.random() * 2 + 1,
-        x: Math.random() * 100,
-        y: Math.random() * 20,
-        delay: Math.random() * 15,
-        animationDuration: Math.random() * 3 + 3,
+        x: Math.random() * 95 - 25,
+        y: Math.random() * 45 - 18,
+        tailLength: Math.random() * 120 + 140,
+        thickness: Math.random() * 1.2 + 1,
+        opacity: Math.random() * 0.35 + 0.45,
+        delay: Math.random() * 20,
+        animationDuration: Math.random() * 5 + 7,
+        angle: Math.atan2(travelY, travelX) * (180 / Math.PI),
+        travelX,
+        travelY,
       });
     }
 
@@ -90,12 +99,18 @@ export const StarBackground = () => {
           key={meteor.id}
           className="meteor animate-meteor"
           style={{
-            width: meteor.size * 50 + "px",
-            height: meteor.size * 2 + "px",
+            width: meteor.tailLength + "px",
+            height: meteor.thickness + "px",
             left: meteor.x + "%",
             top: meteor.y + "%",
-            animationDelay: meteor.delay,
+            opacity: meteor.opacity,
+            animationDelay: meteor.delay + "s",
             animationDuration: meteor.animationDuration + "s",
+            "--meteor-angle": meteor.angle + "deg",
+            "--meteor-opacity": meteor.opacity,
+            "--meteor-travel-x": meteor.travelX + "px",
+            "--meteor-travel-y": meteor.travelY + "px",
+            "--meteor-head-size": meteor.thickness * 3 + "px",
           }}
         />
       ))}

@@ -1,11 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Keyboard, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
-import { useTheme } from "@/components/ThemeToggle";
 
 //the links
 const navItems = [
@@ -24,6 +22,7 @@ const navItems = [
 
   { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
   { name: "Skills", href: "/#skills" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/#contact" },
@@ -32,8 +31,7 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isDarkMode } = useTheme();
-  const keyboardImage = isDarkMode ? "/images/keyboard-dark.png" : "/images/keyboard-light.png";
+
   useEffect(() => {
     //The height of the nav is 10.
     const handleScroll = () => {
@@ -56,7 +54,7 @@ export const Navbar = () => {
           <span className="relative z-10">
             <span className="text-glow text-foreground"> David Hoang's </span> Portfolio
           </span>
-          <img src={keyboardImage} className="ml-2 h-10 w-10 object-contain" alt="Keyboard logo" />
+          <Keyboard className="ml-2 h-8 w-8 text-foreground" strokeWidth={2.25} aria-label="Keyboard logo" />
         </a>
 
         {/* desktop nav */}

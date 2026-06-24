@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import {projectsList} from"../pages/Projects";
 
 export const ProjectsSection = () => {
+  const topProjects = projectsList.slice(0, 3);
+
 /*
 Component Purpose:
 - This section displays a preview grid of projects with title, description, image, tags, and links.
@@ -42,11 +44,17 @@ Icons:
          The map function is to evaluate javascript code.
          */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsList.map((project) => (
+          {topProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg  shadow-xs card-hover relative"
+              className="group bg-card rounded-lg  shadow-xs card-hover relative cursor-pointer"
             >
+              <Link
+                to={`/projects/${project.id}`}
+                aria-label={`Learn more about ${project.title}`}
+                className="absolute inset-0 z-10 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              />
+
               <div className="h-48 overflow-hidden">
                  {/* Group hover makes it so that it expands within the card. */}
                 <img
@@ -73,22 +81,30 @@ Icons:
                 <p className="text-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="  absolute bottom-0 left-0 w-full m-4 ">
+                <div className="absolute bottom-0 left-0 m-4 z-20">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {project.demoUrl && project.demoUrl !== "#" && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} demo`}
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code`}
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

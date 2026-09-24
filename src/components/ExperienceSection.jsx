@@ -6,7 +6,7 @@ const experiences = [
     company: "Hawl Technologies, LLC",
     context: "AI startup - LLM memory and control systems",
     location: "Remote",
-    dates: "Jan. 2026 - Present",
+    dates: "Jan. 2026 - Aug. 2026",
     highlights: [
       "Led frontend coordination for AI Memory Box, a Chrome extension and web platform that captures, organizes, and displays user memory data from LLM conversations.",
       "Planned sprint timelines, defined frontend priorities, assigned tasks, and coordinated feature work across a rotating intern team of 3-4 developers.",

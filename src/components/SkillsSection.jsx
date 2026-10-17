@@ -1,86 +1,69 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { Braces, Database, FlaskConical, LayoutTemplate, ServerCog, Shapes } from "lucide-react";
+import { createElement } from "react";
 
-const skills = [
-  { name: "JavaScript", category: "languages" },
-  { name: "TypeScript", category: "languages" },
-  { name: "Java", category: "languages" },
-  { name: "SQL", category: "languages" },
-  { name: "HTML5", category: "languages" },
-  { name: "CSS3", category: "languages" },
-
-  { name: "React", category: "frontend" },
-  { name: "Next.js", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Responsive Web Design", category: "frontend" },
-  { name: "UI Components", category: "frontend" },
-  { name: "Figma", category: "frontend" },
-  { name: "AJAX", category: "frontend" },
-
-  { name: "Node.js", category: "backend" },
-  { name: "Express.js", category: "backend" },
-  { name: "Spring Boot", category: "backend" },
-  { name: "REST APIs", category: "backend" },
-  { name: "CRUD Operations", category: "backend" },
-
-  { name: "MySQL", category: "tools" },
-  { name: "SQLite", category: "tools" },
-  { name: "MongoDB", category: "tools" },
-  { name: "Git/GitHub", category: "tools" },
-  { name: "VS Code", category: "tools" },
-  { name: "IntelliJ", category: "tools" },
-  { name: "Eclipse", category: "tools" },
-  { name: "Linux", category: "tools" },
-  { name: "Vite", category: "tools" },
-
-  { name: "Chrome Extensions", category: "concepts" },
-  { name: "Manifest V3", category: "concepts" },
-  { name: "Relational Database Design", category: "concepts" },
-  { name: "OOP", category: "concepts" },
-  { name: "Data Structures", category: "concepts" },
-  { name: "Agile", category: "concepts" },
-  { name: "SDLC", category: "concepts" },
-  { name: "Full-Stack Development", category: "concepts" },
+const skillGroups = [
+  {
+    title: "Languages",
+    icon: Braces,
+    skills: ["Java", "JavaScript", "TypeScript", "SQL", "HTML5", "CSS3"],
+  },
+  {
+    title: "Frontend",
+    icon: LayoutTemplate,
+    skills: ["React", "Angular", "Next.js", "Tailwind CSS", "Responsive Web Design", "AJAX"],
+  },
+  {
+    title: "Backend",
+    icon: ServerCog,
+    skills: ["Node.js", "Express.js", "Javalin", "Spring Boot", "Spring Data JPA", "Hibernate/JPA", "JDBC", "REST APIs", "CRUD Operations"],
+  },
+  {
+    title: "Databases",
+    icon: Database,
+    skills: ["MySQL", "SQLite", "MongoDB", "Relational Database Design"],
+  },
+  {
+    title: "Testing & Developer Tools",
+    icon: FlaskConical,
+    skills: ["JUnit", "Git", "GitHub", "Maven", "Figma", "VS Code", "IntelliJ", "Eclipse", "Linux", "Vite", "Codex"],
+  },
+  {
+    title: "Concepts",
+    icon: Shapes,
+    skills: ["Chrome Extensions", "Manifest V3", "OOP", "Dependency Injection", "Data Structures", "Software Design Patterns", "SOLID Principles", "Agile", "SDLC", "Full-Stack Development"],
+  },
 ];
 
-const categories = ["all", "languages", "frontend", "backend", "tools", "concepts"];
-
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter((skill) => activeCategory === "all" || skill.category === activeCategory);
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          My <span className="text-primary">Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
-            <button key={key} onClick={() => setActiveCategory(category)} className={cn("px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-             activeCategory === category ? "bg-primary text-primary-foreground" : "text-foreground bg-background hover:bg-primary hover:text-primary-foreground")}>
-              {category}
-            </button>
-          ))}
-        </div>
+        <p className="text-center text-foreground/80 mb-12 max-w-2xl mx-auto">
+          Technologies and practices I use to build responsive interfaces, full-stack applications, and maintainable software.
+        </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div key={key} className="bg-card p-6 rounded-lg shadow-xs card-hover">
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-              {/*
-          
-
-              */}
-                <div className="bg-primary h-2 rounded-full " />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          {skillGroups.map(({ title, icon: Icon, skills }) => (
+            <article key={title} className="bg-card border border-border p-6 rounded-lg shadow-xs card-hover text-left">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-3 rounded-full bg-primary/10 text-primary">
+                  {createElement(Icon, { size: 22, "aria-hidden": true })}
+                </div>
+                <h3 className="font-semibold text-xl">{title}</h3>
               </div>
 
-              <div className="text-right mt-1"></div>
-            </div>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <span key={skill} className="px-3 py-1.5 text-sm border border-border rounded-full bg-background/70 text-foreground">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>

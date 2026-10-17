@@ -1,5 +1,7 @@
 import { ArrowDown } from "lucide-react";
 
+
+
 export const HeroSection = () => {
   return (
     //semantical
@@ -11,7 +13,7 @@ export const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
       
-      <div className="w-32 h-32 overflow-hidden rounded-full relative">
+      <div className="w-32 h-32 overflow-hidden rounded-full relative z-10 bg-background ring-4 ring-primary/20 shadow-lg">
         {/*Object position: x% y% offsett
         */}
         <img src="/images/portfolio-pfp.jpg" alt="David Hoang profile photo" className="absolute top-0 left-0 w-full h-full object-cover [object-position:50%_-30%] scale-150 " />
@@ -30,11 +32,17 @@ export const HeroSection = () => {
             <span className=" ml-2 opacity-0 animate-fade-in-delay-2"> Hoang</span>
           </h1>
 
-          <p className="text-lg md:text-xl  max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">As a recent graduate, I am looking for entry roles within tech!</p>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-foreground/80 opacity-0 animate-fade-in-delay-3">
+            Front-end and full-stack developer building responsive React products, REST API integrations, and Chrome extension experiences.
+          </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
               View My Work
+            </a>
+            <a href="#contact" className="px-6 py-2 rounded-full border border-primary text-foreground font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95">
+              Contact Me
             </a>
           </div>
         </div>

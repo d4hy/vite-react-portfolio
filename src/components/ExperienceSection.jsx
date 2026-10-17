@@ -8,23 +8,22 @@ const experiences = [
     location: "Remote",
     dates: "Jan. 2026 - Aug. 2026",
     highlights: [
-      "Led frontend coordination for AI Memory Box, a Chrome extension and web platform that captures, organizes, and displays user memory data from LLM conversations.",
-      "Planned sprint timelines, defined frontend priorities, assigned tasks, and coordinated feature work across a rotating intern team of 3-4 developers.",
-      "Led weekly team meetings to review progress, discuss blockers, gather feedback, and align upcoming frontend tasks.",
-      "Reviewed and tested teammate pull requests, giving feedback on usability, UI behavior, feature implementation, and potential bugs before approval.",
-      "Refactored the Chrome extension frontend from plain JavaScript into a React-based architecture, improving maintainability and making new UI features easier to implement.",
+      "Led frontend development and coordination for AI Memory Box, a Chrome extension and web platform that captures, organizes, and displays user memory data from LLM conversations.",
+      "Built responsive React interfaces and integrated frontend components with REST APIs for memory retrieval, storage, and dynamic UI updates.",
+      "Planned sprints, set frontend priorities, assigned tasks, and led weekly meetings for a rotating team of 3-4 developers.",
+      "Reviewed and tested pull requests and created Figma wireframes and prototypes to improve usability, UI behavior, and implementation quality.",
+      "Refactored approximately 20,000 lines of legacy HTML, CSS, and JavaScript into a modular React architecture with reusable components and ES6 patterns.",
     ],
-    tags: ["React", "JavaScript", "Manifest V3", "Vite", "Tailwind CSS", "Team Lead"],
+    tags: ["React", "JavaScript", "REST APIs", "Manifest V3", "Figma", "Team Leadership"],
   },
   {
     role: "Caregiver",
     company: "Self-Employed",
     context: "Family care and daily operations",
     location: "Tacoma, WA",
-    dates: "2023 - Current",
+    dates: "2023 - Present",
     highlights: [
-      "Provided full-time care and daily assistance for a family member.",
-      "Managed schedules, transportation, household responsibilities, and dependable day-to-day support.",
+      "Provide full-time care and daily assistance for a family member while managing schedules, transportation, household responsibilities, communication, and time-sensitive tasks.",
     ],
     tags: ["Responsibility", "Scheduling", "Communication"],
   },
@@ -39,7 +38,7 @@ export const ExperienceSection = () => {
         </h2>
 
         <p className="text-center text-foreground mb-12 max-w-2xl mx-auto">
-          A snapshot of the work and responsibilities from my resume, including frontend leadership, extension architecture, and hands-on project coordination.
+          Professional experience spanning product development, team leadership, and dependable long-term caregiving.
         </p>
 
         <div className="space-y-6">
@@ -72,10 +71,9 @@ export const ExperienceSection = () => {
                 </div>
               </div>
 
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-3 list-disc pl-5 marker:text-primary">
                 {experience.highlights.map((highlight) => (
                   <li key={highlight} className="text-sm text-foreground leading-relaxed">
-                    <span className="text-primary font-semibold">- </span>
                     {highlight}
                   </li>
                 ))}

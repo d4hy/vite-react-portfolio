@@ -9,39 +9,39 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 export const projectsList = [
   {
     id: 4,
-    title: "Hawl Techs AI Memory Box",
-    description: "A Chrome extension and web platform for capturing, organizing, and displaying memory data from LLM conversations.",
+    title: "AI Memory Box Chrome Extension",
+    description: "A React-based Chrome extension and web platform for capturing, organizing, and displaying memory data from LLM conversations.",
     image: "/images/hawl-techs-memory-box-images/memory-box-card-hero.png",
-    tags: ["React", "JavaScript", "Manifest V3", "Vite", "Tailwind CSS"],
+    tags: ["React", "JavaScript", "Manifest V3", "Tailwind CSS", "REST APIs"],
     demoUrl: "https://memorybox.hawltechs.com",
     githubUrl: "",
   },
   {
     id: 2,
     title: "Fitness Tracker",
-    description: "A Vite React workout tracker with dashboard metrics, CRUD workout records, reusable components, and personal records.",
+    description: "A full-stack workout tracker with dashboard metrics, reusable React components, and CRUD workflows backed by Express and MySQL.",
     image: "/images/fitness-tracker-images/fitness-tracker-dashboard-card.png",
     tags: ["React", "Vite", "JavaScript", "Express.js", "MySQL"],
     demoUrl: "#",
     githubUrl: "https://github.com/d4hy/Fitness-Tracker",
   },
   {
-    id: 1,
-    title: "Beabadoobee Trivia Maze",
-    description: "A Java Swing trivia maze game with SQLite-backed questions, dynamic maze traversal, and save/load persistence.",
-    image: "/images/bea-trivia-images/bea-cover.jpg",
-    tags: ["Java", "Swing", "SQLite", "Git"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/d4hy/TriviaMaze",
-  },
-  {
     id: 3,
     title: "Mythic Realms: Whispers of the Forgotten Lands",
-    description: "A 2D JavaScript adventure game featuring dynamic character movement, enemy interactions, and immersive environments.",
+    description: "A 2D JavaScript game featuring structured update-render loops, collision detection, projectile physics, and real-time input.",
     image: "/images/mythic-realms-images/mythic-realms-preview.png",
     tags: ["JavaScript", "HTML5 Canvas", "CSS", "GitHub Pages"],
     demoUrl: "https://angel-vu.github.io/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands/",
     githubUrl: "https://github.com/angel-vu/TCSS-491-Mythic-Realms-Whispers-of-the-Forgotten-Lands",
+  },
+  {
+    id: 1,
+    title: "TriviaMaze: Beabadoobee Edition",
+    description: "A Java Swing trivia maze with SQLite-backed questions, dynamic maze traversal, and save/load persistence.",
+    image: "/images/bea-trivia-images/bea-cover.jpg",
+    tags: ["Java", "Swing", "SQLite", "Git"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/d4hy/TriviaMaze",
   },
   {
     id: 5,
@@ -157,7 +157,7 @@ export const Projects = () => {
         </div>
           <div className = " mt-12 flex flex-col items-center ">
             <p> Check out my GitHub repository for more projects!</p>
-          <a href= "https://github.com/d4hy" target="_blank" className="cosmic-button w-fit mt-2"> 
+          <a href="https://github.com/d4hy" target="_blank" rel="noopener noreferrer" className="cosmic-button w-fit mt-2">
             My GitHub
           </a>
           </div>

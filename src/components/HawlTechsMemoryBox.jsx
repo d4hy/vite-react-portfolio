@@ -337,7 +337,7 @@ export const HawlTechsMemoryBox = () => {
             <BriefcaseBusiness size={18} />
             Role
           </span>
-          <p className="inline"> Software engineering intern and product contributor </p>
+          <p className="inline"> Front-End Developer Intern / Team Lead </p>
         </li>
 
         <li>
@@ -375,7 +375,7 @@ export const HawlTechsMemoryBox = () => {
       </p>
 
       <p className="text-foreground mb-4 indent-5">
-        I also implemented onboarding and app tour refinements, including animations and UI guidance for resizing and navigation. Across the extension and website, I contributed approximately 24 React component files using React, JavaScript, Manifest V3, Vite, Tailwind CSS, and REST API integrations.
+        I also implemented onboarding and app tour refinements, including animations and UI guidance for resizing and navigation. Across the extension and website, I worked across approximately 24 React component files using React, JavaScript, Manifest V3, Vite, Tailwind CSS, and REST API integrations.
       </p>
 
       <p className="text-foreground mb-4 indent-5">

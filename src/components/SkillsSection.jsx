@@ -10,12 +10,12 @@ const skillGroups = [
   {
     title: "Frontend",
     icon: LayoutTemplate,
-    skills: ["React", "Angular", "Next.js", "Tailwind CSS", "Responsive Web Design", "AJAX"],
+    skills: ["React", "Angular", "Next.js", "Tailwind CSS", "Vite", "Chrome Extensions (Manifest V3)", "Responsive Web Design", "AJAX"],
   },
   {
     title: "Backend",
     icon: ServerCog,
-    skills: ["Node.js", "Express.js", "Javalin", "Spring Boot", "Spring Data JPA", "Hibernate/JPA", "JDBC", "REST APIs", "CRUD Operations"],
+    skills: ["Spring Boot", "Spring Web", "Spring Data JPA", "Javalin", "JDBC", "Node.js", "Express.js", "REST APIs", "Hibernate/JPA", "CRUD Operations"],
   },
   {
     title: "Databases",
@@ -25,12 +25,12 @@ const skillGroups = [
   {
     title: "Testing & Developer Tools",
     icon: FlaskConical,
-    skills: ["JUnit", "Git", "GitHub", "Maven", "Figma", "VS Code", "IntelliJ", "Eclipse", "Linux", "Vite", "Codex"],
+    skills: ["JUnit", "Mockito", "Git", "GitHub", "Maven", "Figma", "IntelliJ", "VS Code", "Linux", "Eclipse", "Codex"],
   },
   {
     title: "Concepts",
     icon: Shapes,
-    skills: ["Chrome Extensions", "Manifest V3", "OOP", "Dependency Injection", "Data Structures", "Software Design Patterns", "SOLID Principles", "Agile", "SDLC", "Full-Stack Development"],
+    skills: ["OOP", "Dependency Injection", "Data Structures", "Software Design Patterns", "SOLID Principles", "Agile", "SDLC", "Full-Stack Development"],
   },
 ];
 

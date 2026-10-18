@@ -9,6 +9,7 @@ import { FitnessTracker } from "./components/FitnessTracker";
 import { MythicRealms } from "./components/MyhticRealms";
 import { HawlTechsMemoryBox } from "./components/HawlTechsMemoryBox";
 import { ArchiveLMS } from "./components/ArchiveLMS";
+import { SpringSocialMediaBlog } from "./components/SpringSocialMediaBlog";
 function App() {
   return (
     <ThemeProvider>
@@ -24,6 +25,7 @@ function App() {
             <Route path="3" element={<MythicRealms />} />
             <Route path="4" element={<HawlTechsMemoryBox />} />
             <Route path="5" element={<ArchiveLMS />} />
+            <Route path="6" element={<SpringSocialMediaBlog />} />
           </Route>
         </Routes>
       </BrowserRouter>

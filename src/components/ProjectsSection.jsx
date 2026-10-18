@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {projectsList} from"../pages/Projects";
 
 export const ProjectsSection = () => {
-  const topProjects = projectsList.slice(0, 3);
+  // Feature the three projects on the resume; the full project page keeps every project.
+  const topProjects = projectsList.filter((project) => project.featured);
 
 /*
 Component Purpose:

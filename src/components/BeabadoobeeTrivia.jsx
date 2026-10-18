@@ -67,7 +67,13 @@ export const BeabadoobeeTrivia = () => {
       <h2 className="text-3xl font-bold text-center mb-4">{project.title}</h2>
       <img src={"/images/bea-trivia-images/bea-1st.png"} alt={project.title} className="w-full h-full object-cover rounded-md mb-4 " />
       <p className="text-foreground mb-4 indent-5">
-        TriviaMaze is a Java Swing desktop game where correct trivia answers let players traverse a dynamically generated maze. I built the interface, connected the game to a SQLite database for trivia questions, answer choices, and game data, and implemented save/load functionality with object serialization so players could persist progress.
+        TriviaMaze is a Java Swing desktop game where correct trivia answers let players traverse a dynamically generated maze. I built the maze interface and queried SQLite for multiple-choice, true/false, and short-answer questions.
+      </p>
+      <p className="text-foreground mb-4 indent-5">
+        I implemented question creation through a factory and save/load functionality using Java object serialization to restore game state.
+      </p>
+      <p className="text-foreground mb-4 indent-5">
+        I contributed JUnit tests covering maze traversal, question-driven door behavior, game-over conditions, and save/load persistence.
       </p>
 
       <ul className="flex items-start flex-col gap-4 mt-4">
@@ -75,7 +81,7 @@ export const BeabadoobeeTrivia = () => {
         <li>
           {" "}
           <span className="inline border border-primary bg-primary text-foreground px-2 py-1 rounded mr-1">Stack</span>
-          <p className="inline"> Java, Java Swing, SQLite, IntelliJ </p>
+          <p className="inline"> Java, Java Swing, SQLite, JUnit, IntelliJ </p>
         </li>
 
         <li>

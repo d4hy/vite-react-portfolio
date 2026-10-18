@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" fill="none">
+  <defs>
+    <linearGradient id="sky" x2="1000" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101e30"/>
+      <stop offset="1" stop-color="#0b111e"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#6ba88a" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#6ba88a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1000v600H0z"/>
+  <ellipse cx="770" cy="210" rx="350" ry="300" fill="url(#glow)"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="68" y="95" fill="#a4cfb4" font-size="18" letter-spacing="3">JAVA / SPRING BOOT</text>
+    <text x="68" y="157" fill="#edf1f7" font-size="40" font-weight="700">Spring Social Media</text>
+    <text x="68" y="210" fill="#edf1f7" font-size="40" font-weight="700">Blog API</text>
+    <text x="68" y="254" fill="#a7b3c4" font-size="20">Accounts. Messages. Validated persistence.</text>
+    <rect x="68" y="308" width="406" height="196" rx="14" fill="#162234" stroke="#334358"/>
+    <text x="94" y="348" fill="#a4cfb4" font-size="15" letter-spacing="2">ACCOUNTS</text>
+    <text x="94" y="389" fill="#edf1f7" font-size="23">Registration &amp; login</text>
+    <text x="94" y="432" fill="#a4cfb4" font-size="15" letter-spacing="2">MESSAGES</text>
+    <text x="94" y="473" fill="#edf1f7" font-size="23">Create / Read / Update / Delete</text>
+    <path d="M474 406h72" stroke="#a4cfb4" stroke-width="2"/>
+    <path d="m536 399 10 7-10 7" stroke="#a4cfb4" stroke-width="2"/>
+    <rect x="546" y="308" width="386" height="86" rx="14" fill="#162234" stroke="#334358"/>
+    <text x="572" y="343" fill="#edf1f7" font-size="21">Service validation</text>
+    <text x="572" y="374" fill="#a7b3c4" font-size="17">Usernames, content, account references</text>
+    <path d="M739 394v24" stroke="#a4cfb4" stroke-width="2"/>
+    <rect x="546" y="418" width="386" height="86" rx="14" fill="#162234" stroke="#334358"/>
+    <text x="572" y="453" fill="#edf1f7" font-size="21">Spring Data JPA</text>
+    <text x="572" y="484" fill="#a7b3c4" font-size="17">Repository persistence</text>
+    <text x="68" y="554" fill="#7e8da2" font-size="15" letter-spacing="2">API OVERVIEW</text>
+  </g>
+</svg>

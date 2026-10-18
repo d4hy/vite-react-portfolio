@@ -8,7 +8,10 @@ export const AboutSection = () => {
 
         <div className="space-y-5  text-lg leading-relaxed text-foreground/80">
           <p>
-            I am a front-end and full-stack developer with experience across React, Node.js, Express, SQL, and Chrome extension development. I have built production-facing interfaces, connected responsive frontends to REST APIs, and helped modernize an AI memory platform with reusable React architecture.
+            I am a software developer with experience building React applications, integrating REST APIs, and leading frontend development for an AI-powered Chrome extension. At Hawl Technologies, I built interfaces for AI Memory Box, contributed to refactoring a legacy codebase, and coordinated a rotating team of 3-4 developers.
+          </p>
+          <p>
+            Through projects and technical training, I have built Java and Spring Boot REST APIs with relational database persistence. My projects include a React workout tracker connected to Express and MySQL, a layered Spring social message API, and a Java Swing trivia maze with SQLite, serialization, and JUnit tests.
           </p>
           <p>
             I enjoy translating complex product ideas into approachable user experiences, collaborating with teammates, and understanding the fundamentals behind the tools I use. Outside of software, I like building and soldering custom keyboards.

@@ -48,7 +48,7 @@ export const ContactSection = () => {
         </h2>
 
         <p className="text-center text-foreground/80 mb-12 max-w-2xl mx-auto">
-          I am open to front-end and full-stack opportunities where I can contribute thoughtful interfaces, reliable integrations, and collaborative problem-solving. If you are hiring or have a project in mind, let&apos;s connect.
+          I am open to software development opportunities across frontend, backend, and full-stack work, using React, Java/Spring Boot, Node.js/Express, and SQL. If you are hiring or have a project in mind, let&apos;s connect.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

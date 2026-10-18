@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 
 
 
@@ -33,7 +33,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-foreground/80 opacity-0 animate-fade-in-delay-3">
-            Front-end and full-stack developer building responsive React products, REST API integrations, and Chrome extension experiences.
+            Software developer building React applications and Java/Spring Boot REST APIs with relational database persistence.
           </p>
 
 
@@ -43,6 +43,10 @@ export const HeroSection = () => {
             </a>
             <a href="#contact" className="px-6 py-2 rounded-full border border-primary text-foreground font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95">
               Contact Me
+            </a>
+            <a href="/resume/David_Hoang_Resume.pdf" download className="inline-flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-primary transition-colors">
+              <Download size={18} aria-hidden="true" />
+              Download Resume
             </a>
           </div>
         </div>
